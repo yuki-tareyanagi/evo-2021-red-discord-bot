@@ -1,0 +1,23 @@
+{
+  "name": "evo-2021-red-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuki-tareyanagi/evo-2021-red-discord-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuki-tareyanagi/evo-2021-red-discord-bot/issues"
+  },
+  "homepage": "https://github.com/yuki-tareyanagi/evo-2021-red-discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "node.js": "0.0.1-security"
+  }
+}
