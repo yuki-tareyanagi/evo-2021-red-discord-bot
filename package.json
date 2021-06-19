@@ -19,7 +19,8 @@
   "homepage": "https://github.com/yuki-tareyanagi/evo-2021-red-discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "node.js": "0.0.1-security"
+    "node.js": "0.0.1-security",
+    "require": "^2.4.20"
   },
   "devDependencies": {
     "eslint": "^7.29.0"
