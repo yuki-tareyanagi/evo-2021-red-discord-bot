@@ -17,7 +17,7 @@ client.on('message', async msg => {
     //「hello, 名前」を送信
     if(msg.content === 'hello>'){
         
-        const username = msg.member.nickname;
+        const username = msg.member.nickname || msg.author.username;
         msg.channel.send(`hello, ${username}`);
         console.log(msg.member);
 
@@ -26,11 +26,11 @@ client.on('message', async msg => {
     //「おみくじ」と入力があったら
     //「おみくじ結果, 名前」を送信
     if(msg.content === 'おみくじ'){
-        const username = msg.member.nickname;
+        const username = msg.member.nickname || msg.author.username;
         const lots = ['大吉', '吉', '中吉', '末吉', '凶'];
         const lot = lots[Math.floor(Math.random() * lots.length)];
         msg.channel.send(`${lot}, ${username}`);
     }
 })
 
-client.login(process.env.DISCORD_BOT_TOKEN);
+client.login();
