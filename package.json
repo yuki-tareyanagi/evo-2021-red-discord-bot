@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "eslint *.js ./components/*.js ./example/*/*.js",
     "start": "index.js"
   },
   "repository": {
@@ -19,5 +20,8 @@
   "dependencies": {
     "discord.js": "^12.5.3",
     "node.js": "0.0.1-security"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0"
   }
 }

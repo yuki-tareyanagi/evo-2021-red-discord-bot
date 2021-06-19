@@ -3,10 +3,10 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log(`${client.user.tag} でログインしています。`);
-})
+});
 
 
-client.on('message', async msg => {
+client.on('message', msg => {
 
     //user「!ping」 => bot「Pong!」
     if(msg.content === '!ping'){
@@ -31,6 +31,6 @@ client.on('message', async msg => {
         const lot = lots[Math.floor(Math.random() * lots.length)];
         msg.channel.send(`${lot}, ${username}`);
     }
-})
+});
 
 client.login();
