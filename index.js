@@ -39,6 +39,11 @@ client.on('message', msg => {
     }
 
 
+    if(msg.content.match(/^System.out.println(\".*\");$/)){
+      const output = msg.content.splice(20, --2);
+      console.log(output);
+    }
+
 });
 
 client.login();
