@@ -38,11 +38,12 @@ client.on('message', msg => {
         msg.channel.send(`${lot}, ${username}`);
     }
 
-
-    if(msg.content.match(/^System.out.println(\".*\");$/)){
-      const output = msg.content.splice(20, --2);
+    /*
+    if(msg.content.match(/System.out.println(\".*\");/)){
+      const output = msg.content.splice(20, -3);
       console.log(output);
-    }
+      console.log("ok");
+    }*/
 
 });
 
