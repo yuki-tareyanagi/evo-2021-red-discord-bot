@@ -12,3 +12,5 @@ https://discord.js.org/#/docs/main/stable/general/welcome
 「hello, 名前」を返す
 #### おみくじ
 「結果, 名前」を返す
+#### System.out.println("");
+「""の中身」を返す
