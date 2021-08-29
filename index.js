@@ -43,6 +43,10 @@ client.on('message', msg => {
 });
 
 client.on("voiceStateUpdate", (oldStatus, newStatus)=>{
+    let actionName = "";
+    if(oldStatus.channelID && newStatus.channelID) actionName = "移動";
+    else if(oldStatus.channelID) actionName = "退出";
+    else actionName = "参加";
     //参加以外は通知しない
     if(newStatus.channelID){
         //サーバー取得
@@ -59,7 +63,7 @@ client.on("voiceStateUpdate", (oldStatus, newStatus)=>{
 
         //送信メッセージの作成
         let joinSpaceName = joinCategory ? `${joinCategory.name}のボイスチャンネル` : joinVoiceChannel.name;
-        let message = `${joinUserName}さんが${joinSpaceName}に参加しました`;
+        let message = `${joinUserName}さんが${joinSpaceName}に${actionName}しました`;
 
         //送信先テキストチャンネルを取得
         let notificationTargetChannel = guild.channels.cache.find((c) =>{
