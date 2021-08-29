@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+var notificationTargetChannelName = "一般";
 //接続時にログイン情報を表示
 client.on('ready', () => {
   console.log(`${client.user.tag} でログインしています。`);
@@ -41,4 +42,38 @@ client.on('message', msg => {
 
 });
 
+client.on("voiceStateUpdate", (oldStatus, newStatus)=>{
+    //参加以外は通知しない
+    if(newStatus.channelID){
+        //サーバー取得
+        let guild = newStatus.guild;
+        //ユーザ名取得
+        let joinUserId = newStatus.id;
+        let joinUser = guild.members.cache.get(joinUserId);
+        let joinUserName = joinUser.nickname || joinUser.user.username
+        //参加したボイスチャンネル取得
+        let joinVoiceChannelId = newStatus.channelID;
+        let joinVoiceChannel = guild.channels.cache.get(joinVoiceChannelId);
+        //ボイスチャンネルの所属しているカテゴリを取得
+        let joinCategory = guild.channels.cache.get(joinVoiceChannel.parentID);
+
+        //送信メッセージの作成
+        let joinSpaceName = joinCategory ? `${joinCategory.name}のボイスチャンネル` : joinVoiceChannel.name;
+        let message = `${joinUserName}さんが${joinSpaceName}に参加しました`;
+
+        //送信先テキストチャンネルを取得
+        let notificationTargetChannel = guild.channels.cache.find((c) =>{
+            if (c.name === notificationTargetChannelName){
+                console.log(c);
+                return true;
+            };
+            return false;
+        });
+        
+        notificationTargetChannel.send(message);
+    }
+});
+
+
 client.login();
+
