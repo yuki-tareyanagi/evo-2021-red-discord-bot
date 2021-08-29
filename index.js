@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-var notificationTargetChannelName = "一般";
+var notificationTargetChannelName = "VC参加通知";
 //接続時にログイン情報を表示
 client.on('ready', () => {
   console.log(`${client.user.tag} でログインしています。`);
