@@ -43,6 +43,7 @@ client.on('message', msg => {
 });
 
 client.on("voiceStateUpdate", (oldStatus, newStatus)=>{
+    if(oldStatus.channelID == newStatus.channelID) return;
     let actionName = "";
     if(oldStatus.channelID && newStatus.channelID) actionName = "移動";
     else if(oldStatus.channelID) actionName = "退出";
